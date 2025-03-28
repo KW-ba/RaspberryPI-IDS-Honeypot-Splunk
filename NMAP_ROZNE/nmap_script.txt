@@ -1,0 +1,994 @@
+   2738 root      20   0  336960 294940   6408 S   0.3  15.2   0:06.05 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:37.97 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:37.98 snort
+   2738 root      20   0  336960 294940   6408 S   0.3  15.2   0:06.06 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:37.99 snort
+   2738 root      20   0  336960 294940   6408 S   0.3  15.2   0:06.07 snort
+   1244 root      20   0  825160 564624   8740 S   0.7  29.0   1:38.01 snort
+   2738 root      20   0  336960 294940   6408 S   0.3  15.2   0:06.08 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:38.02 snort
+   2738 root      20   0  336960 297412   8740 S   0.7  15.3   0:06.10 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:38.03 snort
+   1244 root      20   0  825160 564624   8740 S   1.0  29.0   1:38.06 snort
+   2738 root      20   0  336960 297412   8740 R   0.7  15.3   0:06.12 snort
+   1244 root      20   0  825160 564624   8740 S   4.0  29.0   1:38.18 snort
+   2738 root      20   0  336960 297412   8740 S   3.3  15.3   0:06.22 snort
+   1244 root      20   0  825160 564624   8740 S   4.0  29.0   1:38.30 snort
+   2738 root      20   0  336960 297412   8740 S   3.6  15.3   0:06.33 snort
+   1244 root      20   0  825160 564624   8740 S   4.3  29.0   1:38.43 snort
+   2738 root      20   0  336960 297412   8740 S   2.6  15.3   0:06.41 snort
+   1244 root      20   0  825160 564624   8740 S   5.6  29.0   1:38.60 snort
+   2738 root      20   0  336960 297412   8740 S   5.0  15.3   0:06.56 snort
+   1244 root      20   0  825160 564624   8740 S   5.6  29.0   1:38.77 snort
+   2738 root      20   0  336960 297412   8740 S   4.3  15.3   0:06.69 snort
+   2738 root      20   0  336960 297412   8740 S   1.7  15.3   0:06.74 snort
+   1244 root      20   0  825160 564624   8740 S   1.0  29.0   1:38.80 snort
+   2738 root      20   0  336960 297412   8740 S   0.3  15.3   0:06.75 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:38.81 snort
+   1244 root      20   0  825160 564624   8740 S   0.3  29.0   1:38.82 snort
+
+root@DietPi:~/power_logs#
+
+
+
+
+└─$ nmap -p22,80,443,445 --script vuln 192.168.0.100   
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-20 04:16 CET
+Nmap scan report for 192.168.0.100
+Host is up (0.0060s latency).
+
+PORT    STATE  SERVICE
+22/tcp  open   ssh
+80/tcp  open   http
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+443/tcp closed https
+445/tcp open   microsoft-ds
+MAC Address: E4:5F:01:39:44:79 (Raspberry Pi Trading)
+
+Host script results:
+|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [9]
+|_smb-vuln-ms10-061: Could not negotiate a connection:SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [9]
+|_smb-vuln-ms10-054: false
+
+Nmap done: 1 IP address (1 host up) scanned in 80.89 seconds
+
+
+
+
+
+
+
+Commencing packet processing (pid=2738)
+03/20-04:16:55.733333  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54516 -> 192.168.0.100:21
+03/20-04:16:55.734662  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54516 -> 192.168.0.100:21
+03/20-04:16:55.736851  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54516 -> 192.168.0.100:21
+03/20-04:16:55.780728  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54516 -> 192.168.0.100:21
+03/20-04:16:56.805262  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54530 -> 192.168.0.100:21
+03/20-04:16:56.806791  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54530 -> 192.168.0.100:21
+03/20-04:16:56.809648  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54530 -> 192.168.0.100:21
+03/20-04:16:58.426911  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:54530 -> 192.168.0.100:21
+03/20-04:17:10.354850  [**] [1:22063:11] SERVER-WEBAPP PHP-CGI remote file include attempt [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.168.0.29:38566 -> 192.168.0.100:80
+03/20-04:17:24.878861  [**] [1:43289:3] SERVER-WEBAPP /etc/shadow file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:47754 -> 192.168.0.100:80
+03/20-04:17:25.133561  [**] [1:2056:12] SERVER-WEBAPP TRACE attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:47772 -> 192.168.0.100:80
+03/20-04:17:25.501595  [**] [1:29040:6] SERVER-WEBAPP Zimbra remote code execution attempt [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.168.0.29:47814 -> 192.168.0.100:80
+03/20-04:17:26.556575  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:47882 -> 192.168.0.100:80
+03/20-04:17:26.556575  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:47882 -> 192.168.0.100:80
+03/20-04:17:26.940142  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:47900 -> 192.168.0.100:80
+03/20-04:17:27.046188  [**] [1:990:21] SERVER-OTHER Microsoft Frontpage _vti_inf.html access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:47904 -> 192.168.0.100:80
+03/20-04:17:27.336388  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:47932 -> 192.168.0.100:80
+03/20-04:17:27.448767  [**] [1:25976:2] POLICY-OTHER Adobe ColdFusion admin API access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:47940 -> 192.168.0.100:80
+03/20-04:17:27.547985  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47944 -> 192.168.0.100:80
+03/20-04:17:27.678517  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47948 -> 192.168.0.100:80
+03/20-04:17:27.738474  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47950 -> 192.168.0.100:80
+03/20-04:17:27.795808  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47956 -> 192.168.0.100:80
+03/20-04:17:28.026592  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47972 -> 192.168.0.100:80
+03/20-04:17:28.075974  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47988 -> 192.168.0.100:80
+03/20-04:17:28.123993  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:47998 -> 192.168.0.100:80
+03/20-04:17:28.353226  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48004 -> 192.168.0.100:80
+03/20-04:17:28.407309  [**] [1:22063:11] SERVER-WEBAPP PHP-CGI remote file include attempt [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.168.0.29:48004 -> 192.168.0.100:80
+03/20-04:17:28.407626  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48012 -> 192.168.0.100:80
+03/20-04:17:28.458229  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48014 -> 192.168.0.100:80
+03/20-04:17:28.510061  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48024 -> 192.168.0.100:80
+03/20-04:17:28.561853  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48028 -> 192.168.0.100:80
+03/20-04:17:28.562751  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48024 -> 192.168.0.100:80
+03/20-04:17:28.562751  [**] [1:29040:6] SERVER-WEBAPP Zimbra remote code execution attempt [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.168.0.29:48024 -> 192.168.0.100:80
+03/20-04:17:28.613710  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48038 -> 192.168.0.100:80
+03/20-04:17:28.668678  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48042 -> 192.168.0.100:80
+03/20-04:17:28.719873  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48048 -> 192.168.0.100:80
+03/20-04:17:28.721172  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48042 -> 192.168.0.100:80
+03/20-04:17:28.721172  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:48042 -> 192.168.0.100:80
+03/20-04:17:28.721172  [**] [1:1826:17] SERVER-WEBAPP WEB-INF access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48042 -> 192.168.0.100:80
+03/20-04:17:28.773376  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48056 -> 192.168.0.100:80
+03/20-04:17:28.824699  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48066 -> 192.168.0.100:80
+03/20-04:17:28.881340  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48070 -> 192.168.0.100:80
+03/20-04:17:28.934780  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48074 -> 192.168.0.100:80
+03/20-04:17:28.987548  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48074 -> 192.168.0.100:80
+03/20-04:17:28.988646  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48076 -> 192.168.0.100:80
+03/20-04:17:29.039983  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48084 -> 192.168.0.100:80
+03/20-04:17:29.092369  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48090 -> 192.168.0.100:80
+03/20-04:17:29.144162  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48102 -> 192.168.0.100:80
+03/20-04:17:29.196139  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48106 -> 192.168.0.100:80
+03/20-04:17:29.249556  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48110 -> 192.168.0.100:80
+03/20-04:17:29.303508  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48124 -> 192.168.0.100:80
+03/20-04:17:29.303962  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48110 -> 192.168.0.100:80
+03/20-04:17:29.303962  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:48110 -> 192.168.0.100:80
+03/20-04:17:29.352176  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48138 -> 192.168.0.100:80
+03/20-04:17:29.402594  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48148 -> 192.168.0.100:80
+03/20-04:17:29.508180  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48154 -> 192.168.0.100:80
+03/20-04:17:29.567017  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48154 -> 192.168.0.100:80
+03/20-04:17:29.567017  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:48154 -> 192.168.0.100:80
+03/20-04:17:29.567212  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48158 -> 192.168.0.100:80
+03/20-04:17:29.616135  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48160 -> 192.168.0.100:80
+03/20-04:17:29.669386  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48160 -> 192.168.0.100:80
+03/20-04:17:29.719775  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48162 -> 192.168.0.100:80
+03/20-04:17:29.774238  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48172 -> 192.168.0.100:80
+03/20-04:17:29.774986  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48178 -> 192.168.0.100:80
+03/20-04:17:29.879843  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48182 -> 192.168.0.100:80
+03/20-04:17:29.930960  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48190 -> 192.168.0.100:80
+03/20-04:17:29.931543  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48192 -> 192.168.0.100:80
+03/20-04:17:29.931648  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48182 -> 192.168.0.100:80
+03/20-04:17:30.036179  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48202 -> 192.168.0.100:80
+03/20-04:17:30.088658  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48216 -> 192.168.0.100:80
+03/20-04:17:30.091901  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48202 -> 192.168.0.100:80
+03/20-04:17:30.192715  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48226 -> 192.168.0.100:80
+03/20-04:17:30.245753  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48228 -> 192.168.0.100:80
+03/20-04:17:30.246405  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48226 -> 192.168.0.100:80
+03/20-04:17:30.297786  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48238 -> 192.168.0.100:80
+03/20-04:17:30.352884  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48244 -> 192.168.0.100:80
+03/20-04:17:30.353033  [**] [1:882:17] SERVER-WEBAPP calendar access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48238 -> 192.168.0.100:80
+03/20-04:17:30.353217  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48238 -> 192.168.0.100:80
+03/20-04:17:30.353290  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48238 -> 192.168.0.100:80
+03/20-04:17:30.353377  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48238 -> 192.168.0.100:80
+03/20-04:17:30.408995  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48258 -> 192.168.0.100:80
+03/20-04:17:30.409872  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48244 -> 192.168.0.100:80
+03/20-04:17:30.561718  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48264 -> 192.168.0.100:80
+03/20-04:17:30.610513  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48266 -> 192.168.0.100:80
+03/20-04:17:30.611347  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.689997  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.689997  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.689997  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.690801  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.690801  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.694569  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.694569  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48278 -> 192.168.0.100:80
+03/20-04:17:30.757385  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48288 -> 192.168.0.100:80
+03/20-04:17:30.836570  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48302 -> 192.168.0.100:80
+03/20-04:17:30.942339  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:30.942567  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48322 -> 192.168.0.100:80
+03/20-04:17:31.014760  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48326 -> 192.168.0.100:80
+03/20-04:17:31.015685  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015791  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015871  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015871  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015913  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015913  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015947  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015947  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.015947  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48318 -> 192.168.0.100:80
+03/20-04:17:31.186978  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48340 -> 192.168.0.100:80
+03/20-04:17:31.187503  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48350 -> 192.168.0.100:80
+03/20-04:17:31.249754  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.304128  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.304128  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.304875  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.308683  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.308683  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.308683  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.308683  [**] [1:1301:23] SERVER-WEBAPP admin.php access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48352 -> 192.168.0.100:80
+03/20-04:17:31.357382  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48356 -> 192.168.0.100:80
+03/20-04:17:31.408671  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48356 -> 192.168.0.100:80
+03/20-04:17:31.520950  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48362 -> 192.168.0.100:80
+03/20-04:17:31.521458  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48372 -> 192.168.0.100:80
+03/20-04:17:31.591485  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48362 -> 192.168.0.100:80
+03/20-04:17:31.688546  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48382 -> 192.168.0.100:80
+03/20-04:17:31.816136  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48394 -> 192.168.0.100:80
+03/20-04:17:31.870787  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48404 -> 192.168.0.100:80
+03/20-04:17:31.871603  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48394 -> 192.168.0.100:80
+03/20-04:17:32.136869  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48416 -> 192.168.0.100:80
+03/20-04:17:32.137367  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48430 -> 192.168.0.100:80
+03/20-04:17:32.190740  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48416 -> 192.168.0.100:80
+03/20-04:17:32.190740  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48416 -> 192.168.0.100:80
+03/20-04:17:32.295788  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48438 -> 192.168.0.100:80
+03/20-04:17:32.460055  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48442 -> 192.168.0.100:80
+03/20-04:17:32.516811  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48452 -> 192.168.0.100:80
+03/20-04:17:32.677757  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48454 -> 192.168.0.100:80
+03/20-04:17:32.729661  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48454 -> 192.168.0.100:80
+03/20-04:17:32.729850  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48470 -> 192.168.0.100:80
+03/20-04:17:32.785342  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48470 -> 192.168.0.100:80
+03/20-04:17:32.785342  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48470 -> 192.168.0.100:80
+03/20-04:17:32.835252  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48486 -> 192.168.0.100:80
+03/20-04:17:32.884355  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48486 -> 192.168.0.100:80
+03/20-04:17:32.990211  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48490 -> 192.168.0.100:80
+03/20-04:17:32.990701  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48498 -> 192.168.0.100:80
+03/20-04:17:33.046329  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48490 -> 192.168.0.100:80
+03/20-04:17:33.046329  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48490 -> 192.168.0.100:80
+03/20-04:17:33.046476  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48498 -> 192.168.0.100:80
+03/20-04:17:33.144068  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48512 -> 192.168.0.100:80
+03/20-04:17:33.310705  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48526 -> 192.168.0.100:80
+03/20-04:17:33.404192  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48530 -> 192.168.0.100:80
+03/20-04:17:33.472988  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48530 -> 192.168.0.100:80
+03/20-04:17:33.653591  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.742157  [**] [1:2393:14] SERVER-WEBAPP /_admin access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.742961  [**] [1:2393:14] SERVER-WEBAPP /_admin access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743073  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743073  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743073  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743268  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743268  [**] [1:1218:18] SERVER-WEBAPP adminlogin access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743352  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.743352  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48542 -> 192.168.0.100:80
+03/20-04:17:33.896879  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.982721  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.983690  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.983860  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:33.983860  [**] [1:1402:19] SERVER-IIS iissamples access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48556 -> 192.168.0.100:80
+03/20-04:17:34.102169  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48562 -> 192.168.0.100:80
+03/20-04:17:34.160826  [**] [1:1564:14] SERVER-WEBAPP login.htm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48562 -> 192.168.0.100:80
+03/20-04:17:34.160826  [**] [1:2152:13] SERVER-WEBAPP test.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48562 -> 192.168.0.100:80
+03/20-04:17:34.161145  [**] [1:1852:11] SERVER-WEBAPP robots.txt access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48562 -> 192.168.0.100:80
+03/20-04:17:34.385345  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48570 -> 192.168.0.100:80
+03/20-04:17:34.469178  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48570 -> 192.168.0.100:80
+03/20-04:17:34.470187  [**] [1:1250:22] OS-OTHER Cisco IOS HTTP configuration attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48570 -> 192.168.0.100:80
+03/20-04:17:34.470187  [**] [1:1250:22] OS-OTHER Cisco IOS HTTP configuration attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:48570 -> 192.168.0.100:80
+03/20-04:17:34.731147  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:48582 -> 192.168.0.100:80
+03/20-04:17:34.812748  [**] [1:1161:17] SERVER-WEBAPP piranha passwd.php3 access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48582 -> 192.168.0.100:80
+03/20-04:17:34.812942  [**] [1:882:17] SERVER-WEBAPP calendar access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:48582 -> 192.168.0.100:80
+03/20-04:17:34.813015  [**] [1:3463:15] SERVER-WEBAPP awstats access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:48582 -> 192.168.0.100:80
+03/20-04:17:35.006692  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49854 -> 192.168.0.100:80
+03/20-04:17:35.058935  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49854 -> 192.168.0.100:80
+03/20-04:17:35.297504  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49866 -> 192.168.0.100:80
+03/20-04:17:35.587907  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49868 -> 192.168.0.100:80
+03/20-04:17:35.685234  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:49868 -> 192.168.0.100:80
+03/20-04:17:35.685234  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:49868 -> 192.168.0.100:80
+03/20-04:17:35.685234  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:49868 -> 192.168.0.100:80
+03/20-04:17:35.939149  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49872 -> 192.168.0.100:80
+03/20-04:17:36.021196  [**] [1:25977:2] POLICY-OTHER Adobe ColdFusion component browser access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:49872 -> 192.168.0.100:80
+03/20-04:17:36.021196  [**] [1:935:19] SERVER-OTHER Adobe Coldfusion startstop DOS access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49872 -> 192.168.0.100:80
+03/20-04:17:36.021196  [**] [1:25975:2] POLICY-OTHER Adobe ColdFusion admin interface access attempt [**] [Classification: Potential Corporate Privacy Violation] [Priority: 1] {TCP} 192.168.0.29:49872 -> 192.168.0.100:80
+03/20-04:17:36.196966  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49886 -> 192.168.0.100:80
+03/20-04:17:36.511823  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49900 -> 192.168.0.100:80
+03/20-04:17:36.779436  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:36.839657  [**] [1:1585:14] SERVER-WEBAPP Domino agentrunner.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:36.839657  [**] [1:1584:14] SERVER-WEBAPP Domino bookmark.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:36.839657  [**] [1:1150:16] SERVER-WEBAPP Domino catalog.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:36.839769  [**] [1:1582:14] SERVER-WEBAPP Domino collect4.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:36.839930  [**] [1:1151:15] SERVER-WEBAPP Domino domcfg.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49904 -> 192.168.0.100:80
+03/20-04:17:37.058810  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.112181  [**] [1:1152:15] SERVER-WEBAPP Domino domlog.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.112181  [**] [1:1580:14] SERVER-WEBAPP Domino events4.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.112942  [**] [1:1153:15] SERVER-WEBAPP Domino log.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.112942  [**] [1:1575:16] SERVER-WEBAPP Domino mab.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.113145  [**] [1:1586:16] SERVER-WEBAPP Domino mail.box access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.113145  [**] [1:1154:15] SERVER-WEBAPP Domino names.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49912 -> 192.168.0.100:80
+03/20-04:17:37.442828  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49918 -> 192.168.0.100:80
+03/20-04:17:37.531400  [**] [1:1577:14] SERVER-WEBAPP Domino setup.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49918 -> 192.168.0.100:80
+03/20-04:17:37.532676  [**] [1:1578:14] SERVER-WEBAPP Domino statrep.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49918 -> 192.168.0.100:80
+03/20-04:17:37.532758  [**] [1:1579:16] SERVER-WEBAPP Domino webadmin.nsf access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49918 -> 192.168.0.100:80
+03/20-04:17:37.740487  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49934 -> 192.168.0.100:80
+03/20-04:17:37.788392  [**] [1:2393:14] SERVER-WEBAPP /_admin access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49934 -> 192.168.0.100:80
+03/20-04:17:37.793370  [**] [1:882:17] SERVER-WEBAPP calendar access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49934 -> 192.168.0.100:80
+03/20-04:17:38.004114  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055084  [**] [1:1129:16] SERVER-WEBAPP .htaccess access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055084  [**] [1:1071:15] SERVER-WEBAPP .htpasswd access attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055084  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:952:18] SERVER-OTHER Microsoft Frontpage author.exe access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:967:26] SERVER-OTHER Microsoft Frontpage dvwssr.dll access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055298  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:1013:21] SERVER-IIS fpcount access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:940:29] SERVER-OTHER Microsoft Frontpage shtml.dll access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:962:25] SERVER-OTHER Microsoft Frontpage shtml.exe access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:1288:18] SERVER-OTHER Microsoft Frontpage /_vti_bin/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:955:23] SERVER-OTHER Microsoft Frontpage access.cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055370  [**] [1:953:19] SERVER-OTHER Microsoft Frontpage administrators.pwd access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055437  [**] [1:951:22] SERVER-OTHER Microsoft Frontpage authors.pwd access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055437  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055437  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.055437  [**] [1:1726:12] SERVER-IIS doctodep.btr access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49950 -> 192.168.0.100:80
+03/20-04:17:38.213474  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:958:22] SERVER-OTHER Microsoft Frontpage service.cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:959:18] SERVER-OTHER Microsoft Frontpage service.pwd [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:960:18] SERVER-OTHER Microsoft Frontpage service.stp access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:961:22] SERVER-OTHER Microsoft Frontpage services.cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.269203  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:963:22] SERVER-OTHER Microsoft Frontpage svcacl.cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:964:18] SERVER-OTHER Microsoft Frontpage users.pwd access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:965:22] SERVER-OTHER Microsoft Frontpage writeto.cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:977:25] SERVER-IIS .cnf access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:1129:16] SERVER-WEBAPP .htaccess access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270055  [**] [1:1071:15] SERVER-WEBAPP .htpasswd access attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270169  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270169  [**] [1:1213:13] SERVER-WEBAPP backup access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270169  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270251  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270169  [**] [1:1826:17] SERVER-WEBAPP WEB-INF access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270251  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270251  [**] [1:974:23] SERVER-IIS Microsoft Windows IIS directory traversal attempt [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270251  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270333  [**] [1:23102:5] POLICY-OTHER Seagate BlackArmor administrator password reset attempt [**] [Classification: Attempted Administrator Privilege Gain] [Priority: 1] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.270407  [**] [1:1122:16] SERVER-WEBAPP /etc/passwd file access attempt [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49966 -> 192.168.0.100:80
+03/20-04:17:38.427236  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49972 -> 192.168.0.100:80
+03/20-04:17:38.613249  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49978 -> 192.168.0.100:80
+03/20-04:17:38.839148  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49982 -> 192.168.0.100:80
+03/20-04:17:38.901757  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49982 -> 192.168.0.100:80
+03/20-04:17:38.901757  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49982 -> 192.168.0.100:80
+03/20-04:17:38.901834  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49982 -> 192.168.0.100:80
+03/20-04:17:39.125289  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49992 -> 192.168.0.100:80
+03/20-04:17:39.179461  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49992 -> 192.168.0.100:80
+03/20-04:17:39.180240  [**] [1:2077:11] SERVER-WEBAPP Mambo upload.php access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:49992 -> 192.168.0.100:80
+03/20-04:17:39.180240  [**] [1:891:17] SERVER-WEBAPP upload.pl access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:49992 -> 192.168.0.100:80
+03/20-04:17:39.339090  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:49994 -> 192.168.0.100:80
+03/20-04:17:39.551814  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50008 -> 192.168.0.100:80
+03/20-04:17:39.817232  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50010 -> 192.168.0.100:80
+03/20-04:17:39.993967  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50012 -> 192.168.0.100:80
+03/20-04:17:40.208944  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50016 -> 192.168.0.100:80
+03/20-04:17:40.264533  [**] [1:1668:14] SERVER-WEBAPP /cgi-bin/ access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:50016 -> 192.168.0.100:80
+03/20-04:17:40.421463  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50032 -> 192.168.0.100:80
+03/20-04:17:40.630576  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50038 -> 192.168.0.100:80
+03/20-04:17:40.849525  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50044 -> 192.168.0.100:80
+03/20-04:17:40.946865  [**] [1:1872:11] SERVER-WEBAPP Oracle Dynamic Monitoring Services dms access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50044 -> 192.168.0.100:80
+03/20-04:17:40.947673  [**] [1:1560:14] SERVER-WEBAPP /doc/ access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50044 -> 192.168.0.100:80
+03/20-04:17:41.149393  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50046 -> 192.168.0.100:80
+03/20-04:17:41.364791  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50062 -> 192.168.0.100:80
+03/20-04:17:41.631619  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50074 -> 192.168.0.100:80
+03/20-04:17:41.702554  [**] [1:993:22] SERVER-IIS iisadmin access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:50074 -> 192.168.0.100:80
+03/20-04:17:41.702776  [**] [1:1214:14] SERVER-WEBAPP intranet access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:50074 -> 192.168.0.100:80
+03/20-04:17:41.867021  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50082 -> 192.168.0.100:80
+03/20-04:17:42.178553  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50094 -> 192.168.0.100:80
+03/20-04:17:42.384453  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50104 -> 192.168.0.100:80
+03/20-04:17:42.474685  [**] [1:1874:9] SERVER-WEBAPP Oracle Java Process Manager access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50104 -> 192.168.0.100:80
+03/20-04:17:42.474756  [**] [1:1880:13] SERVER-WEBAPP oracle web application server access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50104 -> 192.168.0.100:80
+03/20-04:17:42.590570  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50108 -> 192.168.0.100:80
+03/20-04:17:42.923944  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50112 -> 192.168.0.100:80
+03/20-04:17:43.169902  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50126 -> 192.168.0.100:80
+03/20-04:17:43.226584  [**] [1:1029:18] SERVER-IIS scripts-browse access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:50126 -> 192.168.0.100:80
+03/20-04:17:43.226584  [**] [1:1029:18] SERVER-IIS scripts-browse access [**] [Classification: Web Application Attack] [Priority: 1] {TCP} 192.168.0.29:50126 -> 192.168.0.100:80
+03/20-04:17:43.226691  [**] [1:1520:14] SERVER-WEBAPP server-info access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50126 -> 192.168.0.100:80
+03/20-04:17:43.226770  [**] [1:1521:14] SERVER-WEBAPP server-status access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50126 -> 192.168.0.100:80
+03/20-04:17:43.394662  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50138 -> 192.168.0.100:80
+03/20-04:17:43.461949  [**] [1:1040:24] SERVER-IIS srchadm access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50138 -> 192.168.0.100:80
+03/20-04:17:43.667398  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50152 -> 192.168.0.100:80
+03/20-04:17:43.724515  [**] [1:835:26] SERVER-WEBAPP test-cgi access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:50152 -> 192.168.0.100:80
+03/20-04:17:43.842274  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50168 -> 192.168.0.100:80
+03/20-04:17:44.139074  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.194415  [**] [1:896:23] SERVER-WEBAPP way-board access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.194415  [**] [1:1847:18] SERVER-WEBAPP webalizer access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.195273  [**] [1:1125:16] SERVER-WEBAPP webcart access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.195273  [**] [1:1848:13] SERVER-WEBAPP webcart-lite access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.195392  [**] [1:1826:17] SERVER-WEBAPP WEB-INF access [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.0.29:50176 -> 192.168.0.100:80
+03/20-04:17:44.377553  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50186 -> 192.168.0.100:80
+03/20-04:17:44.450485  [**] [1:887:18] SERVER-WEBAPP www-sql access [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:50186 -> 192.168.0.100:80
+03/20-04:17:44.735142  [**] [1:1000005:0] HTTP SYN FLOOD [**] [Priority: 0] {TCP} 192.168.0.29:50188 -> 192.168.0.100:80
+^C*** Caught Int-Signal
+===============================================================================
+Run time for packet processing was 240.27279 seconds
+Snort processed 3777 packets.
+Snort ran for 0 days 0 hours 4 minutes 0 seconds
+   Pkts/min:          944
+   Pkts/sec:           15
+===============================================================================
+Memory usage summary:
+  Total non-mmapped bytes (arena):       260825088
+  Bytes in mapped regions (hblkhd):      22126592
+  Total allocated space (uordblks):      172066016
+  Total free space (fordblks):           88759072
+  Topmost releasable block (keepcost):   24960
+===============================================================================
+Packet I/O Totals:
+   Received:         3782
+   Analyzed:         3777 ( 99.868%)
+    Dropped:            0 (  0.000%)
+   Filtered:            0 (  0.000%)
+Outstanding:            5 (  0.132%)
+   Injected:            0
+===============================================================================
+Breakdown by protocol (includes rebuilt packets):
+        Eth:         3785 (100.000%)
+       VLAN:            0 (  0.000%)
+        IP4:         3533 ( 93.342%)
+       Frag:            0 (  0.000%)
+       ICMP:            0 (  0.000%)
+        UDP:            4 (  0.106%)
+        TCP:         3525 ( 93.131%)
+        IP6:            0 (  0.000%)
+    IP6 Ext:            0 (  0.000%)
+   IP6 Opts:            0 (  0.000%)
+      Frag6:            0 (  0.000%)
+      ICMP6:            0 (  0.000%)
+       UDP6:            0 (  0.000%)
+       TCP6:            0 (  0.000%)
+     Teredo:            0 (  0.000%)
+    ICMP-IP:            0 (  0.000%)
+    IP4/IP4:            0 (  0.000%)
+    IP4/IP6:            0 (  0.000%)
+    IP6/IP4:            0 (  0.000%)
+    IP6/IP6:            0 (  0.000%)
+        GRE:            0 (  0.000%)
+    GRE Eth:            0 (  0.000%)
+   GRE VLAN:            0 (  0.000%)
+    GRE IP4:            0 (  0.000%)
+    GRE IP6:            0 (  0.000%)
+GRE IP6 Ext:            0 (  0.000%)
+   GRE PPTP:            0 (  0.000%)
+    GRE ARP:            0 (  0.000%)
+    GRE IPX:            0 (  0.000%)
+   GRE Loop:            0 (  0.000%)
+       MPLS:            0 (  0.000%)
+        ARP:          252 (  6.658%)
+        IPX:            0 (  0.000%)
+   Eth Loop:            0 (  0.000%)
+   Eth Disc:            0 (  0.000%)
+   IP4 Disc:            0 (  0.000%)
+   IP6 Disc:            0 (  0.000%)
+   TCP Disc:            0 (  0.000%)
+   UDP Disc:            0 (  0.000%)
+  ICMP Disc:            0 (  0.000%)
+All Discard:            0 (  0.000%)
+      Other:            4 (  0.106%)
+Bad Chk Sum:            0 (  0.000%)
+    Bad TTL:            0 (  0.000%)
+     S5 G 1:            4 (  0.106%)
+     S5 G 2:            4 (  0.106%)
+      Total:         3785
+===============================================================================
+Action Stats:
+     Alerts:          317 (  8.375%)
+     Logged:          317 (  8.375%)
+     Passed:            0 (  0.000%)
+Limits:
+      Match:            0
+      Queue:            0
+        Log:            0
+      Event:            0
+      Alert:           10
+Verdicts:
+      Allow:         3739 ( 98.863%)
+      Block:            0 (  0.000%)
+    Replace:            0 (  0.000%)
+  AllowFlow:           38 (  1.005%)
+  BlockFlow:            0 (  0.000%)
+     Ignore:            0 (  0.000%)
+      Retry:            0 (  0.000%)
+===============================================================================
+Frag3 statistics:
+        Total Fragments: 0
+      Frags Reassembled: 0
+               Discards: 0
+          Memory Faults: 0
+               Timeouts: 0
+               Overlaps: 0
+              Anomalies: 0
+                 Alerts: 0
+                  Drops: 0
+     FragTrackers Added: 0
+    FragTrackers Dumped: 0
+FragTrackers Auto Freed: 0
+    Frag Nodes Inserted: 0
+     Frag Nodes Deleted: 0
+===============================================================================
+===============================================================================
+Stream statistics:
+            Total sessions: 181
+              TCP sessions: 178
+       Active TCP sessions: 0
+  Non mempool TCP sess mem: 0
+          TCP mempool used: 0
+              UDP sessions: 3
+       Active UDP sessions: 3
+          UDP mempool used: 0
+             ICMP sessions: 0
+      Active ICMP sessions: 0
+         ICMP mempool used: 0
+               IP sessions: 0
+        Active IP sessions: 0
+           IP mempool used: 0
+                TCP Prunes: 0
+                UDP Prunes: 0
+               ICMP Prunes: 0
+                 IP Prunes: 0
+TCP StreamTrackers Created: 178
+TCP StreamTrackers Deleted: 178
+              TCP Timeouts: 0
+              TCP Overlaps: 0
+       TCP Segments Queued: 4643
+     TCP Segments Released: 4643
+       TCP Rebuilt Packets: 3875
+         TCP Segments Used: 4640
+              TCP Discards: 12
+                  TCP Gaps: 39
+      UDP Sessions Created: 3
+      UDP Sessions Deleted: 3
+              UDP Timeouts: 0
+              UDP Discards: 0
+     ICMP Dest unreachable: 0
+ ICMP Fragmentation needed: 0
+                    Events: 7
+           Internal Events: 0
+           TCP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 3517
+           UDP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 3
+===============================================================================
+HTTP Inspect - encodings (Note: stream-reassembled packets included):
+    POST methods:                         21
+    GET methods:                          1173
+    HTTP Request Headers extracted:       2296
+    HTTP Request Cookies extracted:       0
+    Post parameters extracted:            21
+    HTTP response Headers extracted:      1378
+    HTTP Response Cookies extracted:      0
+    Unicode:                              0
+    Double unicode:                       0
+    Non-ASCII representable:              14
+    Directory traversals:                 174
+    Extra slashes ("//"):                 65
+    Self-referencing paths ("./"):        174
+    HTTP Response Gzip packets extracted: 0
+    Gzip Compressed Data Processed:       n/a
+    Gzip Decompressed Data Processed:     n/a
+    Http/2 Rebuilt Packets:               0
+    Total packets processed:              4614
+    Non-mempool session memory:           0
+    http_mempool used:                    0
+    hi_gzip_mempool used:                 0
+    mime_decode_mempool used:             0
+    mime_log_mempool used:                0
+    Current active session:               0
+===============================================================================
+FTPTelnet Preprocessor Statistics
+  Current active FTP sessions                   : 0
+  Max concurrent FTP sessions                   : 2
+  Total FTP Data sessions                       : 0
+  Max concurrent FTP Data sessions              : 0
+  Current active Telnet sessions                : 0
+  Max concurrent Telnet sessions                : 0
+  Current ftp_telnet session non-mempool memory : 0
+===============================================================================
+SMTP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+dcerpc2 Preprocessor Statistics
+  Total sessions: 17
+ Active sessions: 0
+
+  Transports
+    SMB
+      Total sessions: 17
+      Packet stats
+        Packets: 30
+        Ignored bytes: 202
+        Maximum outstanding requests: 1
+        SMB command requests/responses processed
+          Negotiate (0x72) : 14/13
+      Memory stats (bytes)
+        Current total: 52428800
+        Maximum total: 52430592
+        Current session data: 52428800
+        Maximum session data: 52430592
+        Current segmentation buffering: 0
+        Maximum segmentation buffering: 0
+        Current uid tracking: 0
+        Maximum uid tracking: 0
+        Current tid tracking: 0
+        Maximum tid tracking: 0
+        Current fid tracking: 0
+        Maximum fid tracking: 0
+        Current file tracking: 0
+        Maximum file tracking: 0
+        Current request tracking: 0
+        Maximum request tracking: 0
+    SMB2
+      Smb2 prunes: 0
+      Memory used for smb2 processing: 0
+      Maximum memory used for smb2 processing: 0
+      SMB2 command requests/responses processed
+        smb2 create         : 0
+        smb2 write          : 0
+        smb2 read           : 0
+        smb2 set info       : 0
+        smb2 tree connect   : 0
+        smb2 tree disconnect: 0
+        smb2 close          : 0
+
+  Memory stats (bytes)
+    Current total: 52429282
+    Maximum total: 52518104
+    Current runtime total: 52428800
+    Maximum runtime total: 52430592
+    Current config total: 0
+    Maximum config total: 82508
+    Current rule options total: 482
+    Maximum rule options total: 510
+    Current routing table total: 0
+    Maximum routing table total: 0
+    Current initialization total: 0
+    Maximum initialization total: 4586
+===============================================================================
+SSL Preprocessor:
+   SSL packets decoded: 2
+          Client Hello: 0
+          Server Hello: 0
+           Certificate: 0
+           Server Done: 0
+   Client Key Exchange: 0
+   Server Key Exchange: 0
+         Change Cipher: 0
+              Finished: 0
+    Client Application: 0
+    Server Application: 2
+                 Alert: 0
+  Unrecognized records: 0
+  Completed handshakes: 0
+        Bad handshakes: 0
+      Sessions ignored: 2
+    Detection disabled: 0
+===============================================================================
+SIP Preprocessor Statistics
+  Total sessions: 0
+===============================================================================
+IMAP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+POP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+Reputation Preprocessor Statistics
+  Total Memory Allocated: 0
+===============================================================================
+
+Memory Statistics of DNS at: Thu Mar 20 04:18:15 2025
+
+
+Heap Statistics of dns:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+===============================================================================
+
+Memory Statistics of Frag3 on: Thu Mar 20 04:18:15 2025
+
+    Memory in use         : 0
+    prealloc nodes in use : 0
+
+
+Heap Statistics of frag:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+===============================================================================
+
+Memory Statistics of FTPTelnet at: Thu Mar 20 04:18:15 2025
+
+       Current active FTP sessions :    0
+       Max concurrent FTP sessions :    2
+           Total FTP Data sessions :    0
+  Max concurrent FTP Data sessions :    0
+    Current active Telnet sessions :    0
+    Max concurrent Telnet sessions :    0
+
+Heap Statistics of ftptelnet:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            624
+                 No of frees:            624
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              2
+                 No of frees:              2
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            622
+                 No of frees:            622
+===============================================================================
+ Memory Statistics of Http Inspect on: Thu Mar 20 04:18:15 2025
+
+     Current active session          : 0
+    No of POST methods encountered  : 21
+    No of GET methods encountered   : 1173
+    No of successfully extract post params      : 21
+    No of successfully extract request params   : 2296
+    No of successfully extract response params  : 1378
+ Http Memory Pool       :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Mime Decode Memory Pool   :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Http Gzip Memory Pool     :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Http Mime log Memory Pool :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+
+Heap Statistics of httpinspect:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            445
+                 No of frees:            445
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            441
+                 No of frees:            441
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+        Mempool Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+===============================================================================
+SMTP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  SMTP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  SMTP Config
+     Used Memory  :         14060
+     No of Allocs :            19
+     No of Frees  :            71
+   Total memory used :         14060
+
+Heap Statistics of smtp:
+          Total Statistics:
+               Memory in use:          14060 bytes
+                No of allocs:             19
+                 No of frees:             71
+         Config Statistics:
+               Memory in use:          14060 bytes
+                No of allocs:             19
+                 No of frees:             71
+===============================================================================
+
+Memory Statistics of Stream on: Thu Mar 20 04:18:15 2025
+
+Stream Session Statistics:
+            Total sessions: 181
+              TCP sessions: 178
+       Active TCP sessions: 0
+              UDP sessions: 3
+       Active UDP sessions: 3
+             ICMP sessions: 0
+      Active ICMP sessions: 0
+               IP sessions: 0
+        Active IP sessions: 0
+   TCP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   UDP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   ICMP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   IP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   Session Flow Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+
+Heap Statistics of stream:
+          Total Statistics:
+               Memory in use:        2072952 bytes
+                No of allocs:           4829
+                 No of frees:           4825
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:           4816
+                 No of frees:           4816
+         Config Statistics:
+               Memory in use:        2072952 bytes
+                No of allocs:             13
+                 No of frees:              9
+===============================================================================
+
+Memory Statistics of DCE at: Thu Mar 20 04:18:15 2025
+
+dcerpc2 Preprocessor Statistics:
+                Total sessions :    17
+               Active sessions :    0
+            Total SMB sessions :    17
+            Total TCP sessions :    0
+            Total UDP sessions :    0
+    Total HTTP server sessions :    0
+     Total HTTP proxy sessions :    0
+Total Memory stats :
+                 Current total :    52429282
+                 Maximum total :    52518104
+                  Total memcap :    0
+                    Free total :    0
+SMB Memory stats :
+                 Current total :    52428800
+                 Maximum total :    52430592
+          Current session data :    52428800
+          Maximum session data :    52430592
+   Current segmentation buffer :    0
+   Maximum segmentation buffer :    0
+TCP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+UDP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+HTTP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+
+Heap Statistics of dce:
+          Total Statistics:
+               Memory in use:            482 bytes
+                No of allocs:            179
+                 No of frees:            156
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             17
+                 No of frees:             17
+         Config Statistics:
+               Memory in use:            482 bytes
+                No of allocs:            162
+                 No of frees:            139
+===============================================================================
+
+Memory Statistics of SIP on: Thu Mar 20 04:18:15 2025
+
+    Total Sessions          : 0
+    Current Active Sessions : 0
+
+
+Heap Statistics of sip:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             22
+                 No of frees:             22
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             22
+                 No of frees:             22
+===============================================================================
+POP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  POP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  POP Config
+     Used Memory  :           449
+     No of Allocs :             3
+     No of Frees  :            18
+   Total memory used :           449
+
+Heap Statistics of pop:
+          Total Statistics:
+               Memory in use:            449 bytes
+                No of allocs:              3
+                 No of frees:             18
+         Config Statistics:
+               Memory in use:            449 bytes
+                No of allocs:              3
+                 No of frees:             18
+===============================================================================
+IMAP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  IMAP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  IMAP Config
+     Used Memory  :          1379
+     No of Allocs :             3
+     No of Frees  :            48
+   Total memory used :          1379
+
+Heap Statistics of imap:
+          Total Statistics:
+               Memory in use:           1379 bytes
+                No of allocs:              3
+                 No of frees:             48
+         Config Statistics:
+               Memory in use:           1379 bytes
+                No of allocs:              3
+                 No of frees:             48
+===============================================================================
+
+Memory Statistics for File at:Thu Mar 20 04:18:15 2025
+
+Total buffers allocated:           0
+Total buffers freed:               0
+Total buffers released:            0
+Total file mempool:                0
+Total allocated file mempool:      0
+Total freed file mempool:          0
+Total released file mempool:       0
+
+Heap Statistics of file:
+          Total Statistics:
+               Memory in use:            280 bytes
+                No of allocs:              6
+                 No of frees:              1
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+        Mempool Statistics:
+               Memory in use:            280 bytes
+                No of allocs:              5
+                 No of frees:              0
+===============================================================================
+Snort exiting
+
+
+

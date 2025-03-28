@@ -1,0 +1,591 @@
+root@DietPi:~/power_logs# top -o %CPU | grep snort
+   1244 root      20   0  614224 264192   8740 S   1.0  13.6   1:22.66 snort
+   2489 root      20   0  336640 294680   6408 S   1.0  15.2   0:06.12 snort
+   1244 root      20   0  614224 264192   8740 S   0.3  13.6   1:22.67 snort
+   2489 root      20   0  336640 294680   6408 S   0.3  15.2   0:06.13 snort
+   1244 root      20   0  614224 264192   8740 S   1.0  13.6   1:22.70 snort
+   2489 root      20   0  336640 294680   6408 S   0.7  15.2   0:06.15 snort
+   1244 root      20   0  614224 273168   8740 S   7.6  14.0   1:22.93 snort
+   2489 root      20   0  336640 294680   6408 S   5.9  15.2   0:06.33 snort
+   1244 root      20   0  614224 285048   8740 S  10.6  14.7   1:23.25 snort
+   2489 root      20   0  336640 294680   6408 S   7.9  15.2   0:06.57 snort
+   1244 root      20   0  614224 298512   8740 S  11.6  15.4   1:23.60 snort
+   2489 root      20   0  336640 294680   6408 S   8.9  15.2   0:06.84 snort
+   1244 root      20   0  614224 313032   8740 S  12.2  16.1   1:23.97 snort
+   2489 root      20   0  336640 294680   6408 S   9.6  15.2   0:07.13 snort
+   1244 root      20   0  614224 327552   8740 R  11.3  16.8   1:24.31 snort
+   2489 root      20   0  336640 294680   6408 S   8.9  15.2   0:07.40 snort
+   1244 root      20   0  614224 339960   8740 S  10.6  17.5   1:24.63 snort
+   2489 root      20   0  336640 294680   6408 S   7.9  15.2   0:07.64 snort
+   1244 root      20   0  614224 352104   8740 S   9.9  18.1   1:24.93 snort
+   2489 root      20   0  343504 303708   8676 S   8.9  15.6   0:07.91 snort
+   1244 root      20   0  614224 352368   8740 S   0.7  18.1   1:24.95 snort
+   2489 root      20   0  344032 304236   8676 S   0.3  15.6   0:07.92 snort
+
+root@DietPi:~/power_logs#
+
+
+
+
+└─$ nmap -sS -p- 192.168.0.100
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-20 03:16 CET
+Nmap scan report for 192.168.0.100
+Host is up (0.0056s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2222/tcp open  EtherNetIP-1
+3306/tcp open  mysql
+9997/tcp open  palace-6
+MAC Address: E4:5F:01:39:44:79 (Raspberry Pi Trading)
+
+Nmap done: 1 IP address (1 host up) scanned in 21.68 seconds
+
+
+
+
+
+
+Commencing packet processing (pid=2489)
+03/20-03:16:06.413682  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:60157 -> 192.168.0.100:21
+03/20-03:16:06.414320  [**] [1:10000003:1] MySQL Access [**] [Priority: 0] {TCP} 192.168.0.29:60157 -> 192.168.0.100:3306
+03/20-03:16:06.418701  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:60157 -> 192.168.0.100:21
+03/20-03:16:06.419077  [**] [1:10000003:1] MySQL Access [**] [Priority: 0] {TCP} 192.168.0.29:60157 -> 192.168.0.100:3306
+03/20-03:16:06.566413  [**] [1:1421:19] PROTOCOL-SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:60157 -> 192.168.0.100:705
+03/20-03:16:06.602008  [**] [1:1418:19] PROTOCOL-SNMP request tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:60157 -> 192.168.0.100:161
+03/20-03:16:47.693944  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:45242 -> 192.168.0.100:21
+03/20-03:16:47.694780  [**] [1:10000003:1] MySQL Access [**] [Priority: 0] {TCP} 192.168.0.29:45242 -> 192.168.0.100:3306
+03/20-03:16:47.699788  [**] [1:10000001:1] FTP Access [**] [Priority: 0] {TCP} 192.168.0.29:45242 -> 192.168.0.100:21
+03/20-03:16:47.699878  [**] [1:10000003:1] MySQL Access [**] [Priority: 0] {TCP} 192.168.0.29:45242 -> 192.168.0.100:3306
+03/20-03:16:53.955116  [**] [1:1421:19] PROTOCOL-SNMP AgentX/tcp request [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:45242 -> 192.168.0.100:705
+03/20-03:16:56.699400  [**] [1:1420:19] PROTOCOL-SNMP trap tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:45242 -> 192.168.0.100:162
+03/20-03:17:08.651429  [**] [1:1418:19] PROTOCOL-SNMP request tcp [**] [Classification: Attempted Information Leak] [Priority: 2] {TCP} 192.168.0.29:45242 -> 192.168.0.100:161
+^C*** Caught Int-Signal
+===============================================================================
+Run time for packet processing was 95.11861 seconds
+Snort processed 133282 packets.
+Snort ran for 0 days 0 hours 1 minutes 35 seconds
+   Pkts/min:       133282
+   Pkts/sec:         1402
+===============================================================================
+Memory usage summary:
+  Total non-mmapped bytes (arena):       268066816
+  Bytes in mapped regions (hblkhd):      22126592
+  Total allocated space (uordblks):      172063072
+  Total free space (fordblks):           96003744
+  Topmost releasable block (keepcost):   75920
+===============================================================================
+Packet I/O Totals:
+   Received:       133286
+   Analyzed:       133282 ( 99.997%)
+    Dropped:            0 (  0.000%)
+   Filtered:            0 (  0.000%)
+Outstanding:            4 (  0.003%)
+   Injected:            0
+===============================================================================
+Breakdown by protocol (includes rebuilt packets):
+        Eth:       133286 (100.000%)
+       VLAN:            0 (  0.000%)
+        IP4:       133180 ( 99.920%)
+       Frag:            0 (  0.000%)
+       ICMP:            0 (  0.000%)
+        UDP:            0 (  0.000%)
+        TCP:       133180 ( 99.920%)
+        IP6:            0 (  0.000%)
+    IP6 Ext:            0 (  0.000%)
+   IP6 Opts:            0 (  0.000%)
+      Frag6:            0 (  0.000%)
+      ICMP6:            0 (  0.000%)
+       UDP6:            0 (  0.000%)
+       TCP6:            0 (  0.000%)
+     Teredo:            0 (  0.000%)
+    ICMP-IP:            0 (  0.000%)
+    IP4/IP4:            0 (  0.000%)
+    IP4/IP6:            0 (  0.000%)
+    IP6/IP4:            0 (  0.000%)
+    IP6/IP6:            0 (  0.000%)
+        GRE:            0 (  0.000%)
+    GRE Eth:            0 (  0.000%)
+   GRE VLAN:            0 (  0.000%)
+    GRE IP4:            0 (  0.000%)
+    GRE IP6:            0 (  0.000%)
+GRE IP6 Ext:            0 (  0.000%)
+   GRE PPTP:            0 (  0.000%)
+    GRE ARP:            0 (  0.000%)
+    GRE IPX:            0 (  0.000%)
+   GRE Loop:            0 (  0.000%)
+       MPLS:            0 (  0.000%)
+        ARP:          106 (  0.080%)
+        IPX:            0 (  0.000%)
+   Eth Loop:            0 (  0.000%)
+   Eth Disc:            0 (  0.000%)
+   IP4 Disc:            0 (  0.000%)
+   IP6 Disc:            0 (  0.000%)
+   TCP Disc:            0 (  0.000%)
+   UDP Disc:            0 (  0.000%)
+  ICMP Disc:            0 (  0.000%)
+All Discard:            0 (  0.000%)
+      Other:            0 (  0.000%)
+Bad Chk Sum:            0 (  0.000%)
+    Bad TTL:            0 (  0.000%)
+     S5 G 1:            2 (  0.002%)
+     S5 G 2:            2 (  0.002%)
+      Total:       133286
+===============================================================================
+Action Stats:
+     Alerts:           13 (  0.010%)
+     Logged:           13 (  0.010%)
+     Passed:            0 (  0.000%)
+Limits:
+      Match:            0
+      Queue:            0
+        Log:            0
+      Event:            0
+      Alert:            0
+Verdicts:
+      Allow:       133270 ( 99.988%)
+      Block:            0 (  0.000%)
+    Replace:            0 (  0.000%)
+  AllowFlow:           12 (  0.009%)
+  BlockFlow:            0 (  0.000%)
+     Ignore:            0 (  0.000%)
+      Retry:            0 (  0.000%)
+===============================================================================
+Frag3 statistics:
+        Total Fragments: 0
+      Frags Reassembled: 0
+               Discards: 0
+          Memory Faults: 0
+               Timeouts: 0
+               Overlaps: 0
+              Anomalies: 0
+                 Alerts: 0
+                  Drops: 0
+     FragTrackers Added: 0
+    FragTrackers Dumped: 0
+FragTrackers Auto Freed: 0
+    Frag Nodes Inserted: 0
+     Frag Nodes Deleted: 0
+===============================================================================
+===============================================================================
+Stream statistics:
+            Total sessions: 66550
+              TCP sessions: 66550
+       Active TCP sessions: 0
+  Non mempool TCP sess mem: 0
+          TCP mempool used: 0
+              UDP sessions: 0
+       Active UDP sessions: 0
+          UDP mempool used: 0
+             ICMP sessions: 0
+      Active ICMP sessions: 0
+         ICMP mempool used: 0
+               IP sessions: 0
+        Active IP sessions: 0
+           IP mempool used: 0
+                TCP Prunes: 0
+                UDP Prunes: 0
+               ICMP Prunes: 0
+                 IP Prunes: 0
+TCP StreamTrackers Created: 66550
+TCP StreamTrackers Deleted: 66550
+              TCP Timeouts: 0
+              TCP Overlaps: 0
+       TCP Segments Queued: 31
+     TCP Segments Released: 31
+       TCP Rebuilt Packets: 15
+         TCP Segments Used: 29
+              TCP Discards: 3
+                  TCP Gaps: 0
+      UDP Sessions Created: 0
+      UDP Sessions Deleted: 0
+              UDP Timeouts: 0
+              UDP Discards: 0
+     ICMP Dest unreachable: 0
+ ICMP Fragmentation needed: 0
+                    Events: 1
+           Internal Events: 0
+           TCP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 133176
+           UDP Port Filter
+                  Filtered: 0
+                 Inspected: 0
+                   Tracked: 0
+===============================================================================
+===============================================================================
+FTPTelnet Preprocessor Statistics
+  Current active FTP sessions                   : 0
+  Max concurrent FTP sessions                   : 0
+  Total FTP Data sessions                       : 0
+  Max concurrent FTP Data sessions              : 0
+  Current active Telnet sessions                : 0
+  Max concurrent Telnet sessions                : 0
+  Current ftp_telnet session non-mempool memory : 0
+===============================================================================
+SMTP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+dcerpc2 Preprocessor Statistics
+  Total sessions: 0
+ Active sessions: 0
+
+  Memory stats (bytes)
+    Current total: 52429282
+    Maximum total: 52516312
+    Current runtime total: 52428800
+    Maximum runtime total: 52428800
+    Current config total: 0
+    Maximum config total: 82508
+    Current rule options total: 482
+    Maximum rule options total: 510
+    Current routing table total: 0
+    Maximum routing table total: 0
+    Current initialization total: 0
+    Maximum initialization total: 4586
+===============================================================================
+SSL Preprocessor:
+   SSL packets decoded: 2
+          Client Hello: 0
+          Server Hello: 0
+           Certificate: 0
+           Server Done: 0
+   Client Key Exchange: 0
+   Server Key Exchange: 0
+         Change Cipher: 0
+              Finished: 0
+    Client Application: 0
+    Server Application: 2
+                 Alert: 0
+  Unrecognized records: 0
+  Completed handshakes: 0
+        Bad handshakes: 0
+      Sessions ignored: 2
+    Detection disabled: 0
+===============================================================================
+SIP Preprocessor Statistics
+  Total sessions: 0
+===============================================================================
+IMAP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+POP Preprocessor Statistics
+  Total sessions                                    : 0
+  Max concurrent sessions                           : 0
+===============================================================================
+Reputation Preprocessor Statistics
+  Total Memory Allocated: 0
+===============================================================================
+
+Memory Statistics of DNS at: Thu Mar 20 03:17:22 2025
+
+
+Heap Statistics of dns:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+===============================================================================
+
+Memory Statistics of Frag3 on: Thu Mar 20 03:17:22 2025
+
+    Memory in use         : 0
+    prealloc nodes in use : 0
+
+
+Heap Statistics of frag:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+===============================================================================
+
+Memory Statistics of FTPTelnet at: Thu Mar 20 03:17:22 2025
+
+       Current active FTP sessions :    0
+       Max concurrent FTP sessions :    0
+           Total FTP Data sessions :    0
+  Max concurrent FTP Data sessions :    0
+    Current active Telnet sessions :    0
+    Max concurrent Telnet sessions :    0
+
+Heap Statistics of ftptelnet:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            622
+                 No of frees:            622
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:            622
+                 No of frees:            622
+===============================================================================
+ Memory Statistics of Http Inspect on: Thu Mar 20 03:17:22 2025
+
+     Current active session          : 0
+    No of POST methods encountered  : 0
+    No of GET methods encountered   : 0
+    No of successfully extract post params      : 0
+    No of successfully extract request params   : 0
+    No of successfully extract response params  : 0
+ Http Memory Pool       :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Mime Decode Memory Pool   :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Http Gzip Memory Pool     :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+ Http Mime log Memory Pool :
+      Free Memory:                 0 bytes
+      Used Memory:                 0 bytes
+      Max Memory :                 0 bytes
+
+Heap Statistics of httpinspect:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              5
+                 No of frees:              5
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              3
+                 No of frees:              3
+        Mempool Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+===============================================================================
+SMTP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  SMTP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  SMTP Config
+     Used Memory  :         14060
+     No of Allocs :            19
+     No of Frees  :            71
+   Total memory used :         14060
+
+Heap Statistics of smtp:
+          Total Statistics:
+               Memory in use:          14060 bytes
+                No of allocs:             19
+                 No of frees:             71
+         Config Statistics:
+               Memory in use:          14060 bytes
+                No of allocs:             19
+                 No of frees:             71
+===============================================================================
+
+Memory Statistics of Stream on: Thu Mar 20 03:17:22 2025
+
+Stream Session Statistics:
+            Total sessions: 66550
+              TCP sessions: 66550
+       Active TCP sessions: 0
+              UDP sessions: 0
+       Active UDP sessions: 0
+             ICMP sessions: 0
+      Active ICMP sessions: 0
+               IP sessions: 0
+        Active IP sessions: 0
+   TCP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   UDP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   ICMP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   IP Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+   Session Flow Memory Pool:
+        Free Memory:                     0 bytes
+        Used Memory:                     0 bytes
+        Max Memory :                     0 bytes
+
+Heap Statistics of stream:
+          Total Statistics:
+               Memory in use:        2072952 bytes
+                No of allocs:             48
+                 No of frees:             44
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             35
+                 No of frees:             35
+         Config Statistics:
+               Memory in use:        2072952 bytes
+                No of allocs:             13
+                 No of frees:              9
+===============================================================================
+
+Memory Statistics of DCE at: Thu Mar 20 03:17:22 2025
+
+dcerpc2 Preprocessor Statistics:
+                Total sessions :    0
+               Active sessions :    0
+            Total SMB sessions :    0
+            Total TCP sessions :    0
+            Total UDP sessions :    0
+    Total HTTP server sessions :    0
+     Total HTTP proxy sessions :    0
+Total Memory stats :
+                 Current total :    52429282
+                 Maximum total :    52516312
+                  Total memcap :    0
+                    Free total :    0
+SMB Memory stats :
+                 Current total :    52428800
+                 Maximum total :    52428800
+          Current session data :    52428800
+          Maximum session data :    52428800
+   Current segmentation buffer :    0
+   Maximum segmentation buffer :    0
+TCP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+UDP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+HTTP Memory stats :
+                 Current total :    0
+                 Maximum total :    0
+          Current session data :    0
+          Maximum session data :    0
+
+Heap Statistics of dce:
+          Total Statistics:
+               Memory in use:            482 bytes
+                No of allocs:            162
+                 No of frees:            139
+         Config Statistics:
+               Memory in use:            482 bytes
+                No of allocs:            162
+                 No of frees:            139
+===============================================================================
+
+Memory Statistics of SIP on: Thu Mar 20 03:17:22 2025
+
+    Total Sessions          : 0
+    Current Active Sessions : 0
+
+
+Heap Statistics of sip:
+          Total Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             22
+                 No of frees:             22
+         Config Statistics:
+               Memory in use:              0 bytes
+                No of allocs:             22
+                 No of frees:             22
+===============================================================================
+POP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  POP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  POP Config
+     Used Memory  :           449
+     No of Allocs :             3
+     No of Frees  :            18
+   Total memory used :           449
+
+Heap Statistics of pop:
+          Total Statistics:
+               Memory in use:            449 bytes
+                No of allocs:              3
+                 No of frees:             18
+         Config Statistics:
+               Memory in use:            449 bytes
+                No of allocs:              3
+                 No of frees:             18
+===============================================================================
+IMAP Preprocessor Statistics
+  Total sessions                : 0
+  Max concurrent sessions       : 0
+  Current sessions              : 0
+  IMAP Session
+     Used Memory  :             0
+     No of Allocs :             0
+     No of Frees  :             0
+  IMAP Config
+     Used Memory  :          1379
+     No of Allocs :             3
+     No of Frees  :            48
+   Total memory used :          1379
+
+Heap Statistics of imap:
+          Total Statistics:
+               Memory in use:           1379 bytes
+                No of allocs:              3
+                 No of frees:             48
+         Config Statistics:
+               Memory in use:           1379 bytes
+                No of allocs:              3
+                 No of frees:             48
+===============================================================================
+
+Memory Statistics for File at:Thu Mar 20 03:17:22 2025
+
+Total buffers allocated:           0
+Total buffers freed:               0
+Total buffers released:            0
+Total file mempool:                0
+Total allocated file mempool:      0
+Total freed file mempool:          0
+Total released file mempool:       0
+
+Heap Statistics of file:
+          Total Statistics:
+               Memory in use:            280 bytes
+                No of allocs:              6
+                 No of frees:              1
+        Session Statistics:
+               Memory in use:              0 bytes
+                No of allocs:              1
+                 No of frees:              1
+        Mempool Statistics:
+               Memory in use:            280 bytes
+                No of allocs:              5
+                 No of frees:              0
+===============================================================================
+Snort exiting

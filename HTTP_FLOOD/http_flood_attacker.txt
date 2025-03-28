@@ -1,0 +1,109 @@
+sudo ./timestamp.sh slowhttptest -c 2000 -g -H -o slowhttp -r 400 -i 12 -t GET -p 2 -x 12 -u http://192.168.0.100:80/
+
+Timestamp START: 03/20-02:52:13.176174806
+Thu Mar 20 02:52:13 2025: set open files limit to 2010
+Thu Mar 20 02:52:13 2025:
+        slowhttptest version 1.9.0
+ - https://github.com/shekyan/slowhttptest -
+test type:                        SLOW HEADERS
+number of connections:            2000
+URL:                              http://192.168.0.100:80/
+verb:                             GET
+cookie:                           
+Content-Length header value:      4096
+follow up data max size:          28
+interval between follow up data:  12 seconds
+connections per seconds:          400
+probe connection timeout:         2 seconds
+test duration:                    240 seconds
+using proxy:                      no proxy 
+
+Thu Mar 20 02:52:13 2025:
+slow HTTP test status on 0th second:
+
+initializing:        0
+pending:             1
+connected:           0
+error:               0
+closed:              0
+service available:   YES
+Thu Mar 20 02:52:18 2025:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thu Mar 20 02:52:18 2025:
+        slowhttptest version 1.9.0
+ - https://github.com/shekyan/slowhttptest -
+test type:                        SLOW HEADERS
+number of connections:            2000
+URL:                              http://192.168.0.100:80/
+verb:                             GET
+cookie:                           
+Content-Length header value:      4096
+follow up data max size:          28
+interval between follow up data:  12 seconds
+connections per seconds:          400
+probe connection timeout:         2 seconds
+test duration:                    240 seconds
+using proxy:                      no proxy 
+
+Thu Mar 20 02:52:18 2025:
+slow HTTP test status on 5th second:
+
+initializing:        0
+pending:             2
+connected:           854
+error:               0
+closed:              0
+service available:   YES
+Thu Mar 20 02:52:23 2025:
+
+
+....
+
+
+
+Thu Mar 20 02:53:13 2025:
+        slowhttptest version 1.9.0
+ - https://github.com/shekyan/slowhttptest -
+test type:                        SLOW HEADERS
+number of connections:            2000
+URL:                              http://192.168.0.100:80/
+verb:                             GET
+cookie:                           
+Content-Length header value:      4096
+follow up data max size:          28
+interval between follow up data:  12 seconds
+connections per seconds:          400
+probe connection timeout:         2 seconds
+test duration:                    240 seconds
+using proxy:                      no proxy 
+
+Thu Mar 20 02:53:13 2025:
+slow HTTP test status on 60th second:
+
+initializing:        0
+pending:             0
+connected:           1007
+error:               0
+closed:              993
+service available:   NO
+^CThu Mar 20 02:53:15 2025:
+Test ended on 62th second
+Exit status: Cancelled by user
+CSV report saved to slowhttp.csv
+HTML report saved to slowhttp.html
+Timestamp END: 03/20-02:53:15.639397744
+
+

